@@ -15,23 +15,29 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/idSignInHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:text="@string/sign_in"
-                android:layout_margin="20dp"
-                android:textSize="36sp"/>
+                android:textSize="36sp"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/idMobileHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/idSignInHeader"
-                android:text="@string/mobile_no"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:text="@string/mobile_no"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/idMobileNumber"
@@ -41,7 +47,10 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:hint="@string/mobile_no" />
+                android:hint="@string/mobile_no"
+                android:minHeight="48dp"
+                android:inputType="number"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/idPasswordHeader"
@@ -51,7 +60,8 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
-                android:text="@string/password" />
+                android:text="@string/password"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/idPassword"
@@ -76,7 +86,8 @@
                 android:layout_below="@id/idPassword"
                 android:text="@string/forgot_password"
                 android:layout_alignParentEnd="true"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:textColor="@color/black"/>
 
             <Button
                 android:layout_width="match_parent"

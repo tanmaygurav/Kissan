@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OTP">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/idOTPHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verification"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:layout_margin="15dp"/>
+
+    <TextView
+        android:id="@+id/idSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subtitle_otp"
+        android:layout_below="@id/idOTPHeader"
+        android:textAlignment="center"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/idOTP6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_6_digit_otp"
+        android:layout_above="@id/idOTP"
+        android:layout_marginStart="20dp"
+        android:labelFor="@id/idOTP"/>
+
+    <EditText
+        android:id="@+id/idOTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_centerInParent="true"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/idOTPSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_below="@id/idOTP"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/idOTPText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/didn_t_receive_otp"
+        android:layout_above="@id/idOTPResend"
+        android:layout_marginStart="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/idOTPResend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resend_otp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        />
+
+
+</RelativeLayout>
