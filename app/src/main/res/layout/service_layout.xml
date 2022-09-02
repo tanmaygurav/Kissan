@@ -8,12 +8,13 @@
         android:id="@+id/idThumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/Planter" />
+        android:gravity="center"/>
     <TextView
         android:id="@+id/idTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title"
         android:layout_below="@id/idThumbnail"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        />
 </RelativeLayout>
