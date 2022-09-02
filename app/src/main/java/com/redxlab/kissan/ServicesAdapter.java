@@ -41,6 +41,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         holder.itemView.setOnClickListener(view -> {
             Toast.makeText(context,holder.title.getText().toString()+" Clicked",Toast.LENGTH_SHORT).show();
             Intent viewIntent = new Intent(context,AcceptedService.class);
+            viewIntent.putExtra("Requested Service",holder.title.getText().toString());
             context.startActivity(viewIntent);
         });
     }

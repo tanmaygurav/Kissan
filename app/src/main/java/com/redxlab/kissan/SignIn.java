@@ -25,7 +25,7 @@ public class SignIn extends AppCompatActivity {
 //        username=findViewById(R.id.user_name);
 
         login_button.setOnClickListener(v->{
-            startActivity(new Intent(getApplicationContext(),SignIn.class));
+            startActivity(new Intent(getApplicationContext(),HomeScreen.class));
         });
 
         createAccount_button.setOnClickListener(v->{

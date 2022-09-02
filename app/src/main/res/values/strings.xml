@@ -24,4 +24,10 @@
     <string name="search">Search</string>
     <string name="services_available">Services Available</string>
     <string name="title">Title</string>
+    <string name="placeholder">PlaceHolder</string>
+    <string name="service_name">Service name</string>
+    <string name="location">Location</string>
+    <string name="price">Price</string>
+    <string name="enter_coupon">Enter Coupon</string>
+    <string name="book_service">Book Service</string>
 </resources>

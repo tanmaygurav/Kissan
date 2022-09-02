@@ -1,9 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AcceptedService">
+<RelativeLayout
+    android:id="@+id/idAcceptedServiceViews"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/idServiceNameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_name"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:layout_above="@id/idServiceName"/>
+    <TextView
+        android:id="@+id/idServiceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_name"
+        android:layout_marginStart="30dp"
+        android:padding="5dp"
+        android:layout_above="@id/idServiceLocationHeader"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/idServiceLocationHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idServiceLocation"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/location"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/idServiceLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idServicePriceHeader"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_background"
+        android:padding="5dp"
+        android:text="@string/location" />
+
+    <TextView
+        android:id="@+id/idServicePriceHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/price"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/idPricePerHour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idServicePriceHeader"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded_corner_green"
+        android:padding="5dp"
+        android:text="@string/price"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/idPricePerHectare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idPricePerHour"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_green"
+        android:padding="5dp"
+        android:text="@string/price"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/idCouponHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_coupon"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:layout_below="@id/idPricePerHectare"/>
+
+    <TextView
+        android:id="@+id/idCoupon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idCouponHeader"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_green"
+        android:padding="5dp"
+        android:text="@string/enter_coupon" />
+
+    <Button
+        android:id="@+id/idBookServiceBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/book_service"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"/>
+</RelativeLayout>
+
+<!--    Async Request Accepted-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idRequestedServiceCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="30dp">
+<!--        android:visibility="invisible">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/highlight">
+            <TextView
+                android:id="@+id/idRequestedServiceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder"
+                android:textColor="@color/black"
+                android:textSize="36sp"/>
+            <Button
+                android:id="@+id/idCancelRequestBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

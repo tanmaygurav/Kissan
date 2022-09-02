@@ -2,8 +2,10 @@ package com.redxlab.kissan;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +13,10 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -28,9 +34,12 @@ import java.util.ArrayList;
 public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback {
     private static final String TAG ="HomeScreen";
 
-    private RecyclerView servicesRV;
-    private ArrayList<ServicesModel> servicesList;
 
+    private RecyclerView servicesRV;
+    private EditText search;
+    private Boolean reqSer=false;
+
+    private ArrayList<ServicesModel> servicesList;
     private GoogleMap mMap;
     private Location location_var;
     private LatLng location_lat_log;
@@ -40,6 +49,10 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+        servicesRV=findViewById(R.id.idServiceRV);
+        search=findViewById(R.id.idSearch);
+
 
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
