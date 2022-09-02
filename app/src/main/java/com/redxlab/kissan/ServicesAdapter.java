@@ -2,6 +2,8 @@ package com.redxlab.kissan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHolder> {
     private Context context;
     private ArrayList<ServicesModel> servicesModelArrayList;
+
 
     public ServicesAdapter(Context context, ArrayList<ServicesModel> servicesModelArrayList) {
         this.context = context;
@@ -38,12 +41,31 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         holder.thumbnail.setImageResource(model.getServiceImage());
         holder.title.setText(model.getServiceName());
 
-        holder.itemView.setOnClickListener(view -> {
-            Toast.makeText(context,holder.title.getText().toString()+" Clicked",Toast.LENGTH_SHORT).show();
-            Intent viewIntent = new Intent(context,AcceptedService.class);
-            viewIntent.putExtra("Requested Service",holder.title.getText().toString());
-            context.startActivity(viewIntent);
-        });
+        SharedPreferences sharedPreferences = context.getSharedPreferences("myPrefs",Context.MODE_PRIVATE);
+        String role=sharedPreferences.getString("Role","");
+        Log.d("Services Adapter", "loadData: Role "+role);
+
+        if (role=="Farmer") {
+            holder.itemView.setOnClickListener(view -> {
+                Toast.makeText(context,holder.title.getText().toString()+" Clicked",Toast.LENGTH_SHORT).show();
+                Intent viewIntent = new Intent(context,AcceptedService.class);
+                viewIntent.putExtra("Requested Service",holder.title.getText().toString());
+                context.startActivity(viewIntent);
+            });
+        }else{
+            holder.itemView.setOnClickListener(view -> {
+                Toast.makeText(context,holder.title.getText().toString()+" Clicked",Toast.LENGTH_SHORT).show();
+                Intent viewIntent = new Intent(context,RegisterService.class);
+                viewIntent.putExtra("Requested Service",holder.title.getText().toString());
+                context.startActivity(viewIntent);
+            });
+        }
+
+
+    }
+
+    private void loadData() {
+
     }
 
     @Override
@@ -61,4 +83,5 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
 
         }
     }
+
 }

@@ -38,7 +38,7 @@ public class RoleSelector extends AppCompatActivity {
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("UserName",role);
+        editor.putString("Role",role);
 
         editor.apply();
         Log.d(TAG, "saveData: Role : "+role);

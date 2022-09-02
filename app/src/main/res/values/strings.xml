@@ -30,4 +30,18 @@
     <string name="price">Price</string>
     <string name="enter_coupon">Enter Coupon</string>
     <string name="book_service">Book Service</string>
+    <string name="age">Age</string>
+    <string name="cancel">Cancel</string>
+    <string name="support">Support</string>
+    <string name="share">Share</string>
+    <string name="call">Call</string>
+    <string name="chat">Chat</string>
+    <string name="adhaar_card_number">Adhaar Card Number</string>
+    <string name="services">Services</string>
+    <string name="add_more_services">+ Add more Services</string>
+    <string name="save">Save</string>
+    <string name="duty">Duty</string>
+    <string name="kisan_app">Kisan App</string>
+    <string name="account">Account</string>
+    <string name="click_to_change_status">Click to change status</string>
 </resources>

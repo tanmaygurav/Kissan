@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.redxlab.kissan">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kissan"
         tools:targetApi="31">
+        <activity
+            android:name=".Duty"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterService"
+            android:exported="false" />
         <activity
             android:name=".RoleSelector"
             android:exported="false" />
@@ -56,5 +57,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDO09BBVtlILjJprVMPw_z_atEte7v8llc" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

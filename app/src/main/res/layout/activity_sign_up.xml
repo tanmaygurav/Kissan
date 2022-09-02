@@ -23,13 +23,24 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/idUserName"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idRegisterHeader"
-            android:text="@string/name"
-            android:layout_margin="10dp" />
+            android:background="@drawable/rounded_corner_background"
+            android:layout_margin="20dp"
+            android:layout_below="@id/idRegisterHeader">
+
+
+            <TextView
+                android:id="@+id/idUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/name"
+                android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/idUserNameET"
@@ -54,7 +65,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/mobile_no" />
+            android:text="@string/mobile_no"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/idMobileNumber"
@@ -78,7 +90,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idMobileNumber"
             android:text="@string/state"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/idState"
@@ -100,7 +113,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idState"
             android:text="@string/village"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/idVillage"
@@ -122,7 +136,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idVillage"
             android:text="@string/password"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/idPassword"
@@ -144,7 +159,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/idPassword"
             android:text="@string/confirm_password"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:textColor="@color/black"/>
 
 
         <EditText
@@ -161,16 +177,42 @@
             android:inputType="textPassword"
             android:minHeight="48dp" />
 
+        <TextView
+            android:id="@+id/idAdhaarCardHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idConPassword"
+            android:text="@string/adhaar_card_number"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"/>
+
+
+        <EditText
+            android:id="@+id/idAdhaarCardNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idAdhaarCardHeader"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/adhaar_card_number"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp" />
+
         <Button
             android:id="@+id/idRegisterSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idConPassword"
+            android:layout_below="@id/idAdhaarCardNumber"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:text="@string/register" />
+        </RelativeLayout>
 
     </RelativeLayout>
+
 </ScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Duty">
+
+    <TextView
+        android:id="@+id/idHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="@string/kisan_app"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold"/>
+
+    <RelativeLayout
+        android:id="@+id/idView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/idHeader"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_background">
+
+        <Button
+            android:id="@+id/idDutyStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/secondary"
+            android:text="@string/duty"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/idAccountBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idDutyStatus"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/secondary"
+            android:text="@string/account"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/idText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idDutyStatus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:text="@string/click_to_change_status"
+            android:textColor="@color/black" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

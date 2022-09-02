@@ -7,16 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class SignUp extends AppCompatActivity {
     private static final String TAG ="SignUp";
-    private TextView registerHeader;
-    private EditText name, mobile, state, village, password, confirmPassword;
+    private TextView registerHeader,adhaarCardTV;
+    private EditText name, mobile, state, village, password, confirmPassword,adhaarCardNumber;
     private Button registerBTN;
-    private String nameS, mobileS, stateS, villageS, passwordS;
+    private String nameS, mobileS, stateS, villageS, passwordS,role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +32,32 @@ public class SignUp extends AppCompatActivity {
         village=findViewById(R.id.idVillage);
         password=findViewById(R.id.idPassword);
         confirmPassword=findViewById(R.id.idConPassword);
+        adhaarCardTV=findViewById(R.id.idAdhaarCardHeader);
+        adhaarCardNumber=findViewById(R.id.idAdhaarCardNumber);
 
         registerBTN=findViewById(R.id.idRegisterSubmit);
 
+        loadData();
+        
         registerBTN.setOnClickListener(v->{
             saveData();
             startActivity(new Intent(getApplicationContext(),OTP.class));
         });
+
+        if (role=="Farmer") {
+            registerHeader.setText("Register as Farmer");
+            adhaarCardNumber.setVisibility(View.GONE);
+            adhaarCardTV.setVisibility(View.GONE);
+        }else{
+            registerHeader.setText("Register as Service Provider");
+        }
+    }
+
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("myPrefs",Context.MODE_PRIVATE);
+        role=sharedPreferences.getString("Role","");
+        Log.d(TAG, "loadData: Role "+role);
+
     }
 
     private void saveData() {

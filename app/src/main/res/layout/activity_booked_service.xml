@@ -50,4 +50,89 @@
         android:layout_below="@id/map_fragment"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/idServiceProviderName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idServiceProviderHeader"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_green"
+        android:padding="5dp"
+        android:text="@string/service_provider" />
+
+    <TextView
+        android:id="@+id/idServiceProviderAgeHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/age"
+        android:layout_below="@id/idServiceProviderName"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/idServiceProviderAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idServiceProviderAgeHeader"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_green"
+        android:padding="5dp"
+        android:text="@string/age" />
+
+    <Button
+        android:id="@+id/idCancelBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/cancel"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/idSupportBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/support"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/idCancelBTN"/>
+
+    <Button
+        android:id="@+id/idShareBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/share"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/idSupportBTN"/>
+
+    <Button
+        android:id="@+id/idCallBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idCancelBTN"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/call" />
+    <Button
+        android:id="@+id/idChatBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idCancelBTN"
+        android:layout_alignParentEnd="true"
+        android:text="@string/chat"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"/>
 </RelativeLayout>

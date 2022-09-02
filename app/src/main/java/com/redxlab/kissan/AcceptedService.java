@@ -39,7 +39,7 @@ public class AcceptedService extends AppCompatActivity {
         acceptedServiceViews.setVisibility(View.GONE);
 
         Intent intent = getIntent();
-        requestedServiceName.setText(intent.getStringExtra("Requested Service"));
+        requestedServiceName.setText("Requested Service : "+intent.getStringExtra("Requested Service"));
 
 
         new Handler().postDelayed(new Runnable() {

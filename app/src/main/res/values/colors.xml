@@ -11,4 +11,5 @@
     <color name="secondary">#286737</color>
     <color name="highlight">#82AEE8</color>
     <color name="background">#DCE1E5</color>
+    <color name="red">#FF0000</color>
 </resources>

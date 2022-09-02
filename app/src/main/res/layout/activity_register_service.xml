@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterService"
+    android:background="@drawable/rounded_corner_background"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:id="@+id/idHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="Register Service"
+        android:textColor="@color/black"
+        android:textSize="36sp" />
+
+
+
+    <TextView
+        android:id="@+id/idServiceNameHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idServiceName"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/service_name"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/idServiceName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idServicePriceHeader"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner_background"
+        android:hint="@string/service_name"
+        android:minHeight="48dp"
+        android:padding="5dp" />
+
+
+    <TextView
+        android:id="@+id/idServicePriceHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:text="@string/price"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/idPricePerHour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idServicePriceHeader"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/price"
+        android:minHeight="48dp"
+        android:padding="5dp" />
+
+    <EditText
+        android:id="@+id/idPricePerHectare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idPricePerHour"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/price"
+        android:minHeight="48dp"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/idAddServicesBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idPricePerHectare"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#016EFF"
+        android:text="@string/add_more_services" />
+
+    <Button
+        android:id="@+id/idSaveBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idAddServicesBTN"
+        android:layout_margin="20dp"
+        android:text="@string/save"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/secondary"/>
+
+</RelativeLayout>
