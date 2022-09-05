@@ -68,19 +68,19 @@
             android:text="@string/mobile_no"
             android:textColor="@color/black"/>
 
-        <EditText
-            android:id="@+id/idMobileNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idMobileHeader"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:hint="@string/name"
-            android:minHeight="48dp"
-            android:inputType="number"
-            android:autofillHints="name" />
+            <EditText
+                android:id="@+id/idMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idMobileHeader"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="name"
+                android:hint="@string/name"
+                android:inputType="number"
+                android:minHeight="48dp" />
 
 
 

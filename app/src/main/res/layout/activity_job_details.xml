@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JobDetails">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <fragment
+            android:id="@+id/map_fragment"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="380sp" />
+
+        <RelativeLayout
+            android:id="@+id/idDetailsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/map_fragment"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_corner_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/idFarmerNameHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:text="@string/name"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/idJobContactHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idFarmerNameHeader"
+                android:layout_margin="5dp"
+                android:text="@string/mobile_no"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/idJobLocationHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idJobContactHeader"
+                android:layout_margin="5dp"
+                android:text="@string/location"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/idServiceNameHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idJobLocationHeader"
+                android:layout_margin="5dp"
+                android:text="@string/service"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/idJobPriceHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idServiceNameHeader"
+                android:layout_margin="5dp"
+                android:text="@string/price"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/idFarmerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/idJobContactHeader"
+                android:background="@drawable/rounded_corner_white"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/name" />
+            <TextView
+                android:id="@+id/idJobContactNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@id/idJobContactHeader"
+                android:layout_below="@id/idFarmerName"
+                android:background="@drawable/rounded_corner_white"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/mobile_no"
+                android:padding="5dp"/>
+            <TextView
+                android:id="@+id/idJobLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@id/idJobContactHeader"
+                android:layout_below="@id/idJobContactNumber"
+                android:background="@drawable/rounded_corner_white"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/location"
+                android:padding="5dp"/>
+            <TextView
+                android:id="@+id/idServiceName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@id/idJobContactHeader"
+                android:layout_below="@id/idJobLocation"
+                android:background="@drawable/rounded_corner_white"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/service_name"
+                android:padding="5dp"/>
+            <TextView
+                android:id="@+id/idJobPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toEndOf="@id/idJobContactHeader"
+                android:layout_below="@id/idServiceName"
+                android:background="@drawable/rounded_corner_white"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/price_per_hour"
+                android:padding="5dp"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

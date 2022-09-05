@@ -71,6 +71,7 @@ public class SignUp extends AppCompatActivity {
         editor.putString("password",passwordS);
 
         editor.apply();
+
         Log.d(TAG, "saveData: UserName : "+nameS);
         Log.d(TAG, "saveData: mobile : "+mobileS);
         Log.d(TAG, "saveData: state : "+stateS);

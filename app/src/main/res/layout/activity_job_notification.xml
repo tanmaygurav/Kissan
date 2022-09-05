@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JobNotification">
+
+    <TextView
+        android:id="@+id/idNotificationHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/customer_profile"
+        android:layout_centerHorizontal="true"
+        android:textSize="36sp"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:id="@+id/idFarmerImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/farmer_icon"
+        android:layout_below="@id/idNotificationHeader"/>
+
+    <TextView
+        android:id="@+id/idFarmerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/farmer_name"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/idFarmerImage"/>
+
+    <TextView
+        android:id="@+id/idRequestedService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idFarmerName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/service_wanted"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/idRequestedServiceLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:layout_below="@id/idRequestedService"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/idRequestedServicePriceHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_per_hour"
+        android:layout_below="@id/idRequestedServiceLocation"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/idAcceptJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/secondary"
+        android:layout_margin="30dp"/>
+    <Button
+        android:id="@+id/idRejectJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reject"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/red"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="30dp"/>
+
+</RelativeLayout>

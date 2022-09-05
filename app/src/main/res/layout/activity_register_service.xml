@@ -66,7 +66,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="10dp"
-        android:hint="@string/price"
+        android:hint="@string/price_per_hour"
         android:minHeight="48dp"
         android:padding="5dp" />
 
@@ -78,7 +78,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="20dp"
-        android:hint="@string/price"
+        android:hint="@string/price_per_hectare"
         android:minHeight="48dp"
         android:padding="5dp" />
 
