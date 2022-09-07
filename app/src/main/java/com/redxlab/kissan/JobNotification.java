@@ -16,6 +16,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class JobNotification extends AppCompatActivity {
@@ -25,7 +26,7 @@ public class JobNotification extends AppCompatActivity {
     private FirebaseApp firebaseApp;
     private FirebaseFirestore db;
     private DocumentReference docRef;
-    private Map<String,Object> data;
+    private Map<String,Object> data= new HashMap<>();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,7 @@ public class JobNotification extends AppCompatActivity {
     }
 
     private void populateViews() {
-        String serviceNameTxt = "serviceName",locationTxt="location",perHourTxt="pricePerHour",farmerNameTxt="farmerName";
+        String serviceNameTxt = "serviceName",locationTxt="village",perHourTxt="pricePerHour",farmerNameTxt="farmerName";
         farmerName.setText(String.valueOf(data.get(farmerNameTxt)));
         requestedServiceName.setText("Service wanted "+String.valueOf(data.get(serviceNameTxt)));
         requestedServiceLocation.setText("Location "+String.valueOf(data.get(locationTxt)));

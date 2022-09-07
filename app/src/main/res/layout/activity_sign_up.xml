@@ -78,7 +78,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:autofillHints="name"
-                android:hint="@string/name"
+                android:hint="@string/mobile_no"
                 android:inputType="number"
                 android:minHeight="48dp" />
 

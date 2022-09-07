@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +48,8 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback 
     private LatLng location_lat_log;
     private Double longitude, latitude;
 
+    private String currentUserNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,8 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback 
 
         servicesRV=findViewById(R.id.idServiceRV);
         search=findViewById(R.id.idSearch);
+
+        loadData();
 
 
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -121,6 +128,12 @@ public class HomeScreen extends AppCompatActivity implements OnMapReadyCallback 
 
     }
 
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+        currentUserNumber=sharedPreferences.getString("currentUserNumber","");
+        Log.d(TAG, "loadData: currentUserNumber : "+currentUserNumber);
+
+    }
 
 
     @Override

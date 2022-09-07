@@ -26,9 +26,9 @@
         android:id="@+id/idFarmerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/farmer_name"
+        android:layout_below="@id/idFarmerImage"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/idFarmerImage"/>
+        android:text="@string/farmer_name" />
 
     <TextView
         android:id="@+id/idRequestedService"

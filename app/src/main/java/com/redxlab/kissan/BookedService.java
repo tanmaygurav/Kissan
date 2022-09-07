@@ -1,6 +1,7 @@
 package com.redxlab.kissan;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -10,6 +11,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -33,7 +35,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Map;
 
@@ -47,12 +51,13 @@ public class BookedService extends AppCompatActivity implements OnMapReadyCallba
     private RelativeLayout bookedServiceViews;
     private CardView requestedServiceCard;
     private TextView requestedServiceName,serviceProviderName,SPServiceName;
-    private Button cancelService;
+    private Button cancelRequest,cancelService,callSP,share;
 
     private FirebaseApp firebaseApp;
     private FirebaseFirestore db;
     private DocumentReference docRef;
     private Map<String,Object> data;
+    private String SPnumber;
 
 
     @Override
@@ -63,28 +68,70 @@ public class BookedService extends AppCompatActivity implements OnMapReadyCallba
         bookedServiceViews=findViewById(R.id.idBookedServiceViews);
         requestedServiceCard=findViewById(R.id.idRequestedServiceCard);
         requestedServiceName=findViewById(R.id.idRequestedServiceName);
-        cancelService=findViewById(R.id.idCancelRequestBTN);
+        cancelRequest=findViewById(R.id.idCancelRequestBTN);
         serviceProviderName=findViewById(R.id.idServiceProviderName);
         SPServiceName=findViewById(R.id.idServiceName);
+
+        cancelService=findViewById(R.id.idCancelBTN);
+        callSP=findViewById(R.id.idCallBTN);
+        share=findViewById(R.id.idShareBTN);
 
         bookedServiceViews.setVisibility(View.GONE);
 
         Intent intent = getIntent();
         requestedServiceName.setText("Requested Service : "+intent.getStringExtra("Requested Service"));
+//        firebase init
+        firebaseApp= FirebaseApp.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-
-        new Handler().postDelayed(new Runnable() {
+//delayed service accepted code
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                requestedServiceCard.setVisibility(View.GONE);
+//                bookedServiceViews.setVisibility(View.VISIBLE);
+//            }
+//        }, 3000);
+//        TODO: monitor accepted flag | on true show details
+//        monitor flag
+        final DocumentReference docRef = db.collection("RequestedService").document("request1");
+        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
-            public void run() {
-                requestedServiceCard.setVisibility(View.GONE);
-                bookedServiceViews.setVisibility(View.VISIBLE);
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if (error != null) {
+                    Log.w(TAG, "Listen failed.", error);
+                    return;
+                }
+
+                if (value != null && value.exists()) {
+                    Log.d(TAG, "Current data: " + value.getData());
+                    String acceptedtxt="accepted";
+                    String accepted=value.get(acceptedtxt).toString();
+                    if (accepted.equals("true")){
+                        requestedServiceCard.setVisibility(View.GONE);
+                        bookedServiceViews.setVisibility(View.VISIBLE);
+                    };
+                } else {
+                    Log.d(TAG, "Current data: null");
+                }
             }
-        }, 3000);
-        cancelService.setOnClickListener(v->{
+        });
+//        on true show details
+
+        cancelRequest.setOnClickListener(v->{
             startActivity(new Intent(getApplicationContext(),HomeScreen.class));
         });
         getFromFirebase();
 
+//        onclicks
+        cancelService.setOnClickListener(v->{
+            startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+        });
+
+        callSP.setOnClickListener(v->{
+            Intent call = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel",SPnumber,null));
+            startActivity(call);
+        });
 
         FusedLocationProviderClient fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -158,8 +205,10 @@ public class BookedService extends AppCompatActivity implements OnMapReadyCallba
 
     private void populateViews() {
         String serviceNameTxt = "serviceName",serviceProviderNameTxt="serviceProviderName";
+        String contactNumber="contactNumber";
         SPServiceName.setText(String.valueOf(data.get(serviceNameTxt)));
         serviceProviderName.setText(String.valueOf(data.get(serviceProviderNameTxt)));
+        SPnumber=data.get(contactNumber).toString();
     }
 
     private void moveCameratoLocation(LatLng location_lat_log) {

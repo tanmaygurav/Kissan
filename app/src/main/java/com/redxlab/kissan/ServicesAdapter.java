@@ -45,7 +45,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ViewHo
         String role=sharedPreferences.getString("Role","");
         Log.d("Services Adapter", "loadData: Role "+role);
 
-        if (role=="Farmer") {
+        if (role.equals("Farmer")) {
             holder.itemView.setOnClickListener(view -> {
                 Toast.makeText(context,holder.title.getText().toString()+" Clicked",Toast.LENGTH_SHORT).show();
                 Intent viewIntent = new Intent(context,AcceptedService.class);

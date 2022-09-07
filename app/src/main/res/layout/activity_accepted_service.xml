@@ -47,7 +47,7 @@
         android:text="@string/location"
         android:textColor="@color/black" />
 
-    <TextView
+    <EditText
         android:id="@+id/idServiceLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

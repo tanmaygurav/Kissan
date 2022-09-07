@@ -33,7 +33,7 @@ public class OTP extends AppCompatActivity {
     }
 
     private void verifyOTP() {
-        if (role=="Farmer") {
+        if (role.equals("Farmer")) {
             startActivity(new Intent(getApplicationContext(),HomeScreen.class));
         }else{
             startActivity(new Intent(getApplicationContext(),ServicesAvailable.class));
