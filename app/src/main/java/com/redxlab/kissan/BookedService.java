@@ -38,6 +38,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Map;
 
@@ -58,6 +60,53 @@ public class BookedService extends AppCompatActivity implements OnMapReadyCallba
     private DocumentReference docRef;
     private Map<String,Object> data;
     private String SPnumber;
+
+    // monitor request
+    private Handler handler = new Handler();
+    private Runnable runnable;
+    int delay = 10000;
+    @Override
+    protected void onResume() {
+        handler.postDelayed(runnable = new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed(runnable,delay);
+                getSPFromFirebase();
+            }
+        },delay);
+        super.onResume();
+    }
+
+    private void getSPFromFirebase() {
+        db.collection("RequestedService").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                data=document.getData();
+                                String acceptedtxt="accepted";
+                                try {
+                                    String accepted=data.get(acceptedtxt).toString();
+                                    if (accepted.equals("YES")){
+                                        requestedServiceCard.setVisibility(View.GONE);
+                                        bookedServiceViews.setVisibility(View.VISIBLE);                                    };
+                                }catch (Exception e){
+                                    Toast.makeText(getApplicationContext(),"error: "+e,Toast.LENGTH_SHORT).show();
+                                }}
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        handler.removeCallbacks(runnable); //stop handler when activity not visible super.onPause();
+    }
 
 
     @Override
@@ -94,6 +143,8 @@ public class BookedService extends AppCompatActivity implements OnMapReadyCallba
 //        }, 3000);
 //        TODO: monitor accepted flag | on true show details
 //        monitor flag
+
+
         final DocumentReference docRef = db.collection("RequestedService").document("request1");
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override

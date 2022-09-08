@@ -70,7 +70,10 @@ public class JobNotification extends AppCompatActivity {
         });
 
         accept.setOnClickListener(v->{
+            data.put("accepted", "YES");
+            docRef.set(data);
             startActivity(new Intent(getApplicationContext(),JobDetails.class));
+            finish();
         });
     }
 

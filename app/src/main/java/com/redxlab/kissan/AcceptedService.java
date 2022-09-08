@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Map;
@@ -77,28 +79,22 @@ public class AcceptedService extends AppCompatActivity {
         loadData();
 
 //        get request price
-        docRef = db.collection("RequestedService").document("request1");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-                        data=document.getData();
-                        populateViews();
-
-                    } else {
-                        Log.d(TAG, "No such document");
+        CollectionReference availableService = db.collection("AvailableService");
+        availableService.get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                data=document.getData();
+                                populateViews(data);
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
                     }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
-                }
-            }
-        });
-
-
-
+                });
 
         bookService.setOnClickListener(v->{
             sendRequestToFireBase();
@@ -118,7 +114,7 @@ public class AcceptedService extends AppCompatActivity {
         startActivity(intent1);
     }
 
-    private void populateViews() {
+    private void populateViews(Map<String, Object> data) {
         String serviceNameTxt = "serviceName",locationTxt="location",perHourTxt="pricePerHour",perHectareTxt="pricePerHectare";
         serviceName.setText(String.valueOf(data.get(serviceNameTxt)));
         serviceLocation.setText(userLocation);

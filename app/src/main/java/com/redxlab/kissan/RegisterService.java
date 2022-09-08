@@ -68,8 +68,7 @@ public class RegisterService extends AppCompatActivity {
 
     private void saveToFireBase() {
 //        get service provider data and save request
-        CollectionReference request = db.collection("RequestedService");
-        docRef = db.collection("RequestedService").document("request1");
+        CollectionReference register = db.collection("AvailableService");
         data.put("serviceProviderName", nameS);
         data.put("serviceName", "Rotavator");
         data.put("pricePerHour", pphour);
@@ -77,7 +76,7 @@ public class RegisterService extends AppCompatActivity {
         data.put("contactNumber", currentUserNumber);
         data.put("location", "Meerut");
         data.put("accepted", "NO");
-        request.document("request1").set(data);
+        register.add(data);
     }
 
     private void getServiceDetails() {
