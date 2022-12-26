@@ -126,8 +126,8 @@ public class JobDetails extends AppCompatActivity implements OnMapReadyCallback 
         String serviceNameTxt = "serviceName",locationTxt="village";
         String perHourTxt="pricePerHour",farmerNameTxt="farmerName";
         String contactNumberTxt="contactNumber";
-        farmerName.setText(String.valueOf(data.get(farmerNameTxt)));
-        contactNumber.setText(String.valueOf(data.get(contactNumberTxt)));
+        farmerName.setText("Prince");
+        contactNumber.setText("7088212747");
         serviceName.setText(String.valueOf(data.get(serviceNameTxt)));
         jobLocation.setText(String.valueOf(data.get(locationTxt)));
         pricePerHour.setText(String.valueOf(data.get(perHourTxt)));
